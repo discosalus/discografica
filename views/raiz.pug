@@ -1,0 +1,63 @@
+doctype html
+html(lang='es')
+	head
+		meta(charset='utf-8')
+		title discografica
+	body
+		h1 discografica
+		hr
+		table
+			caption artistas
+			thead
+				tr
+					th id
+					th nombre
+			if artistas
+				tbody
+					each artista in artistas	
+						tr
+							td= artista.id
+							td= artista.nombre
+		hr
+		table
+			caption discos
+			thead
+				tr
+					th id
+					th artista_id
+					th titulo
+					th ano
+			if discos
+				tbody
+					each disco in discos
+						tr
+							td= disco.id
+							td= disco.artista_id
+							td= disco.titulo
+							td= disco.ano
+		hr
+		table
+			caption conciertos
+			thead
+				tr
+					th id
+					th artista_id
+					th nombre
+					th ciudad
+					th lugar
+					th fecha
+					th hora
+					th aforo
+					th asistentes
+			if conciertos
+				each concierto in conciertos
+					tr
+						td= concierto.id
+						td= concierto.artista_id
+						td= concierto.nombre
+						td= concierto.ciudad
+						td= concierto.lugar
+						td= concierto.fecha
+						td= concierto.hora
+						td= concierto.aforo
+						td= concierto.asistentes			
