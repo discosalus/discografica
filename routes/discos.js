@@ -13,9 +13,7 @@ miRouter.put('/',(peticion,respuesta) => {
 })
 
 miRouter.post('/',(peticion,respuesta) => {
-	discos.actualizarPorId(peticion.body,(error,discos) => {
-console.log(error)
-respuesta.redirect('/discos')})
+	discos.actualizarPorId(peticion.body,(error,discos) => respuesta.redirect('/discos'))
 })
 
 miRouter.delete('/',(peticion,respuesta) => {
