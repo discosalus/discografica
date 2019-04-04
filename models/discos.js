@@ -28,7 +28,7 @@ const seleccionarPorId = (id,callback) => {
 
 const actualizarPorId = (disco,callback) => {
 	let miConsulta = `UPDATE discos
-			  SET artista_id = ${disco.artista_id}
+			  SET artista_id = ${disco.artista_id},
 			      titulo = '${disco.titulo}',
 			      ano = '${disco.ano}'
 			  WHERE id = ${disco.id}`
