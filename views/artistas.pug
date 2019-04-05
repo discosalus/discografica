@@ -1,0 +1,12 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Artistas discográfica
+	body
+		h1 Artistas discográfica
+		if artistas
+			select
+				each artista in artistas
+					option(value=artista.id)= artista.nombre
+				

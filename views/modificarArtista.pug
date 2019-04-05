@@ -1,0 +1,16 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Modificar los artistas de las discográfica
+	body
+		h1 Modifica los artistas de la discográfica
+		form(id="artistasForm" action="/artistas/actualiza" method="post")
+			p
+				label(for="artistasActualizar") Modificar id:
+				input(type="text" id="artistasActualizar" name="id")
+			p
+				label(for="artistasActualizar") Modificar nombre:
+				input(type="text" id="artistasActualizar" name="nombre")
+			p
+				input(type="submit" value="Modificar")

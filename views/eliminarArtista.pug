@@ -1,0 +1,13 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Eliminar artistas de la discográfica
+	body
+		h1 Eliminar artistas de la discográfica
+		form(id="artistasForm" action="/artistas/eliminar" method="post")
+			p
+				label(for="artistasEliminar") Eliminar artistas:
+				input(type="text" id="artistasEliminar" name="id")
+			p
+				input(type="submit" value="Eliminar")
