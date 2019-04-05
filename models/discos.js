@@ -51,6 +51,7 @@ const eliminarPorId = (id,callback) => {
 	miConsulta = `DELETE FROM discos
 		      WHERE id = ${id}`
 	miBD.query(miConsulta,(error,filas) => {
+		console.log(error);
 		return callback(error,filas)
 	})
 }
@@ -72,6 +73,14 @@ const seleccionarPorArtistaId = (artista_id,callback) => {
                 return callback(error,filas)
         })
 }
+const seleccionarDiscoPorId = (id,callback) => {
+        let miConsulta = `SELECT *
+                          FROM discos
+                          WHERE id = ${id}`
+	miBD.query(miConsulta,(error,filas) => {
+		return callback(error,filas)
+	})
+}
 
 module.exports = {
 	contar,
@@ -80,7 +89,7 @@ module.exports = {
 	insertar,
 	actualizarPorId,
 	eliminarPorId,
-
 	contarPorArtistaId,
-	seleccionarPorArtistaId
+	seleccionarPorArtistaId,
+	seleccionarDiscoPorId
 }

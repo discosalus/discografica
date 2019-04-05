@@ -1,0 +1,14 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Listado de Albunes
+		link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
+	body
+		if registros
+			each registro in registros
+				h2 #{registro.artista_id}
+				ul
+					li #{registro.id}
+					li #{registro.titulo}
+					li #{registro.ano}

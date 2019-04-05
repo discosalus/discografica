@@ -1,0 +1,16 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Elimina Discos Obsoletos
+		link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
+	body
+		p #{mensaje}
+		form(id="nuevoCantanteForm" action="/discos/eliminaDiscos" method="post")
+			p
+				label(for="nombreDiscoEliminar") Elimina un disco con el siguiente id:
+			p
+				input(id="artistaDiscoEliminar" type ="text" class="field" name="artista_id")
+			p
+				input(type="submit"  class="field" value="Eliminar")
+				input(type="hidden" name="_method" class="btn btn-green" value="delete")
