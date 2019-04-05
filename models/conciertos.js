@@ -77,6 +77,14 @@ const seleccionarPorArtistaId = (artista_id,callback) => {
                 return callback(error,filas)
         })
 }
+const seleccionarConciertoPorId = (id,callback) => {
+        let miConsulta = `SELECT *
+                          FROM conciertos
+                          WHERE id = ${id}`
+	miBD.query(miConsulta,(error,filas) => {
+		return callback(error,filas)
+	})
+}
 
 module.exports = {
 	contar,
@@ -85,7 +93,7 @@ module.exports = {
 	insertar,
 	actualizarPorId,
 	eliminarPorId,
-
+    seleccionarConciertoPorId,
 	contarPorArtistaId,
 	seleccionarPorArtistaId
 }

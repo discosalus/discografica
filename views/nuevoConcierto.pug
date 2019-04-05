@@ -1,0 +1,34 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Nuevo Concierto
+	body
+		p 
+		form(id="nuevoConciertoForm" action="/conciertos/insertarConcierto/insertar" method="post")
+			p
+				label(for="artista_idConcierto") Artista_id:
+				input(id="artista_idConcierto" type ="text" name="artista_id")
+			p
+				label(for="nombreConcierto") Nombre:
+				input(id="nombreConcierto" type ="text" name="nombre")
+			p
+				label(for="descConcierto") Ciudad:
+				input(id="descConcierto" type ="text" name="ciudad")
+			p
+				label(for="lugarConcierto") Lugar:
+				input(id="lugarConcierto" type ="text" name="lugar")
+			p
+				label(for="fechaConcierto") Fecha:
+				input(id="fechaConcierto" type ="date" name="fecha")
+			p
+				label(for="horaConcierto") Hora:
+				input(id="horaConcierto" type ="time" name="hora")
+			p
+				label(for="aforoConcierto") Aforo:
+				input(id="aforoConcierto" type ="number" name="aforo")
+			p
+				label(for="asistentesConcierto") Asistentes:
+				input(id="asistentesConcierto" type ="number" name="asistentes")
+			p
+				input(type="submit" value="Enviar")

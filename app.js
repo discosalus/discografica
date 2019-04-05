@@ -6,7 +6,7 @@ const 	miExpress = require('express'),
 	miRouterRaiz = require('./routes/raiz')
   	miRouterArtistas = require('./routes/artistas'),
 	miRouterDiscos = require('./routes/discos'),
-	miRouterConciertos = require('./routes/conciertos'),
+	miRouterConciertos = require('./routes/controladorconciertos'),
   	miApp = miExpress()
 
 miApp
@@ -32,7 +32,7 @@ miApp
 	.use('/',miRouterRaiz)
 // 	.use('/artistas',miRouterArtistas)
 //	.use('/discos',miRouterDiscos)
-//	.use('/conciertos',miRouterConciertos)
+	.use('/conciertos',miRouterConciertos)
   	.use((peticion, respuesta, siguiente) => siguiente(miHttpErrors(404)))
   	.use((error, peticion, respuesta, siguiente) => {
     		respuesta.status(error.status || 500)

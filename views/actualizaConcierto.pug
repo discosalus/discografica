@@ -1,0 +1,43 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Actualiza Conciertos
+	body
+		p 
+		form(id="seleccionaConciertoForm" action="/conciertos/actualizarConcierto" method="post")
+				p
+				label(for="concierto") id Concierto:
+				input(type="text" id="Concierto" name="id")
+				p
+				input(type="submit" id="button" value="Actualizar")
+		if registros
+			each registro in registros
+				form(id="formulario2" action="/conciertos/actualizarConcierto" method="post")
+					p
+						label(for="artista_idConcierto") Artista_id:
+						input(id="artista_idConcierto" type ="text" name="artista_id" value=registro.artista_id)
+					p
+						label(for="nombreConcierto") Nombre:
+						input(id="nombreConcierto" type ="text" name="nombre" value=registro.nombre)
+					p
+						label(for="descConcierto") Ciudad:
+						input(id="descConcierto" type ="text" name="ciudad" value=registro.ciudad)
+					p
+						label(for="lugarConcierto") Lugar:
+						input(id="lugarConcierto" type ="text" name="lugar" value=registro.lugar)
+					p
+						label(for="fechaConcierto") Fecha:
+						input(id="fechaConcierto" type ="date" name="fecha" value=registro.fecha)
+					p
+						label(for="horaConcierto") Hora:
+						input(id="horaConcierto" type ="time" name="hora" value=registro.hora)
+					p
+						label(for="aforoConcierto") Aforo:
+						input(id="aforoConcierto" type ="number" name="aforo" value=registro.aforo)
+					p
+						label(for="asistentesConcierto") Asistentes:
+						input(id="asistentesConcierto" type ="number" name="asistentes" value=registro.asistentes)
+					p
+						input(type="submit" id="boton2" value="Actualizar")
+						input(type="hidden" name="_method" value="put")
