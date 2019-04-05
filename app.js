@@ -30,7 +30,7 @@ miApp
 		}
 	}))
 	.use('/',miRouterRaiz)
-// 	.use('/artistas',miRouterArtistas)
+ 	.use('/artistas',miRouterArtistas)
 //	.use('/discos',miRouterDiscos)
 //	.use('/conciertos',miRouterConciertos)
   	.use((peticion, respuesta, siguiente) => siguiente(miHttpErrors(404)))
