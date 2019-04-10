@@ -45,5 +45,3 @@ con el nombre del artista con id 29 modificado.
 # Autor
 Pablo Beltrán Rius       paribe.pbr@gmail.com
 Encargado de la elaboración del modelo y controlador vinculado al apartado artistas dentro de la aplicación web discográfica Salus
-
-Juanan
