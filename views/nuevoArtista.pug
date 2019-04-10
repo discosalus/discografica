@@ -1,0 +1,14 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Insertar artistas a la discográfica
+	body
+		h1 Insertar artistas a la discográfica
+		form(id="artistasForm" action="/artistas/nuevo" method="post")
+			p
+				label(for="artistasInsertar") Añadir nuevos artistas:
+				input(type="text" id="artistasInsertar" name="nombre")
+					
+			p
+				input(type="submit" value="Publicar")

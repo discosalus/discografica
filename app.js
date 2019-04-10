@@ -30,9 +30,21 @@ miApp
 		}
 	}))
 	.use('/',miRouterRaiz)
+
 // 	.use('/artistas',miRouterArtistas)
+
 //	.use('/discos',miRouterDiscos)
 	.use('/conciertos',miRouterConciertos)
+
+	.use('/discos',miRouterDiscos)
+//	.use('/conciertos',miRouterConciertos)
+
+ 	.use('/artistas',miRouterArtistas)
+//	.use('/discos',miRouterDiscos)
+
+	.use('/conciertos',miRouterConciertos)
+
+
   	.use((peticion, respuesta, siguiente) => siguiente(miHttpErrors(404)))
   	.use((error, peticion, respuesta, siguiente) => {
     		respuesta.status(error.status || 500)

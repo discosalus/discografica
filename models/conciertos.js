@@ -27,17 +27,18 @@ const seleccionarPorId = (id,callback) => {
 }
 
 const actualizarPorId = (concierto,callback) => {
-	let miConsulta = `UPDATE conciertos
-			  SET autor_id = ${concierto.artista_id}
+	let miConsulta = `UPDATE conciertos SET artista_id = '${concierto.artista_id}',
 			      nombre = '${concierto.nombre}',
 			      ciudad = '${concierto.ciudad}',
-			      lugar = '${concierto.lugar}'
+			      lugar = '${concierto.lugar}',
 			      fecha = '${concierto.fecha}',
 			      hora = '${concierto.hora}',
 			      aforo = ${concierto.aforo},
 			      asistentes = ${concierto.asistentes}
 			  WHERE id = ${concierto.id}`
         miBD.query(miConsulta,(error,filas) => {
+                console.log(miConsulta);
+                console.log(error);
                 return callback(error,filas)
         })
 }

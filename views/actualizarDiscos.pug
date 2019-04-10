@@ -1,0 +1,28 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Actualizar Discos
+		link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
+	body
+		h2 Selecciona el disco que quieres actualizar:
+		if registros
+			form(id="seleccionaDiscoForm" action="/discos/actualizaDisco" method="get")
+				p
+					select(name="nombresDisco" form="seleccionaDiscoForm")
+						each registro in registros
+							option(value=registro.artista_id) #{registro.nombre}
+				p
+					input(type="submit"  value="Muestra Disco")
+		if registros2
+			form(id="actualizaDiscoForm" action="/discos/actualizaDisco" method="post")
+				input(type="hidden" name="id_cantante"  class="btn btn-green" value=registros2[0].artista_id)
+				p
+					label(for="nombreDisco") Album:
+					input(id="nombreDisco"  class="field" type ="text" name="nombreTitulo" value=registros2[0].titulo)
+				p
+					label(for="anoDisco") Fecha Pubicacion Album:
+					input(id="anoDisco" type ="text"  class="field" name="ano" value=registros2[0].ano)
+				p
+					input(type="submit" value="Actualizar")
+					input(type="hidden" name="_ethod" class="btn btn-green" value="put")

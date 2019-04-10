@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Nuevo Album
+		link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
+	body
+		p #{mensaje}
+		form(id="nuevoDiscoForm" action="/discos/nuevoDisco" method="post")
+			p
+				label(for="nombreDisco")  Album:
+				input(id="nombreDisco" type="text"  class="field" name="titulo")
+			p
+				label(for="artistaDisco") Artista_id:
+				input(id="artistaDisco" type="text"  class="field" name="artista_id")
+				label(id="anoDisco") Año de publicación del Album:
+				input(id="anoDisco" type="text"  class="field" name="ano")
+			p
+				input(type="submit" class="btn btn-green" value="Publicar")

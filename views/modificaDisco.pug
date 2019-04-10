@@ -1,0 +1,30 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Actualizar Discos
+		link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
+	body
+		h2 Selecciona el disco que quieres actualizar:
+		p #{mensaje}
+		form(id="form1" action="/discos/modificaDisco" method="post")
+			p
+				label(for="disco_idForm") Id Disco:
+				input(type="text" class="field" id="disco_idForm" name="id")
+			p
+				input(type="submit"  class="btn btn-green" id="boton" value="Enviar")
+		if registros
+			each registro in registros
+				form(id="form2" action="/discos/modificaDisco" method="post")
+					p
+						label(for="idDiscoForm") Artista_id:
+						input(type="text" class="field" id="idDiscoForm" name="artista_id" value=registro.artista_id)
+					p
+						label(for="tituloDiscoForm") Album:
+						input(type="text" class="field" id="tituloForm" name="titulo" value=registro.titulo)
+					p
+						label(for="anoDiscoForm") Año de publicacion del Album:
+						input(type="text" class="field" id="anoDiscoForm" name="ano" value=registro.ano)
+					p
+						input(type="submit"  class="btn btn-green" id="boton2" value="Actualizar")
+						input(type="hidden" name="_method" class="btn btn-green" value="put")

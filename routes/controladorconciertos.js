@@ -31,29 +31,37 @@ router.delete('/eliminaConcierto/eliminar', (req, res)=>{
 });
 
 
-router.get('/actualizarConcierto', (req, res)=>{
-		res.render('actualizaConcierto');	
-});
+				
+router.get('/actualizarConcierto', (req, res) => {
+		res.render('actualizaConcierto')
+	});
 
-router.post('/actualizarConcierto', (req, res)=>{
-	modelo.seleccionarConciertoPorId(req.body.id,(error, resultado)=>{
-		res.render('actualizaConcierto',{registros:resultado})
+
+router.post('/actualizarConcierto',(req,res) => {
+		modelo.seleccionarConciertoPorId(req.body.id,(error, resultado)=>{
+			console.log(resultado);
+			res.render('actualizaConcierto',{registros:resultado})
+	})
+})
+
+router.put('/actualizarConcierto', (req, res)=>{
+	modelo.actualizarPorId(req.body,(error, resultado)=>{
+		modelo.seleccionarConciertoPorId(req.body.id,(error2, resultado2)=>{
+			res.render('listaConciertos', {registros:resultado2})});
 	});
 });
 
-router.put('/actualizarConcierto', (req, res)=>{
-	modelo.actualizarPorId(req.body,(error, resultado)=>{res.redirect("/actualizarConcierto")});
-})
+
 
 
 
 router.get('/seleccionaConcierto', (req, res)=>{
-	res.render('seleccionaConcierto');
+res.render('seleccionaConcierto');
 });
 
 router.post('/seleccionarConcierto/seleccionar', (req, res)=>{
-	modelo.seleccionarPorId(req.body.artista_id,(error, resultado)=>
-		res.render('seleccionaConcierto', {registros:resultado}));
+modelo.seleccionarPorId(req.body.artista_id,(error, resultado)=>
+ res.render('seleccionaConcierto', {registros:resultado}));
 });
 
 
