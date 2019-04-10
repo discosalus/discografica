@@ -45,11 +45,14 @@ con el nombre del artista con id 29 modificado.
 # Autor
 Pablo Beltrán Rius       paribe.pbr@gmail.com
 Encargado de la elaboración del modelo y controlador vinculado al apartado artistas dentro de la aplicación web discográfica Salus
-#Autora
+
+
+
+# Autora
 Paloma Camacho Burdeos camachoburdeos.paloma@gmail.com
 Encargada de la realazación del modelo,vista y controlador del apartado discos dentro de la aplicación web discográfica Salus.
 
-#Resumen de tareas por ficheros en el modelo ya tenia las pautas a seguir por la persona encargada de crear la estructura, añadí la siguiente función:
+# Resumen de tareas por ficheros en el modelo ya tenia las pautas a seguir por la persona encargada de crear la estructura, añadí la siguiente función:
 
 const seleccionarDiscoPorId = (id,callback) => {
         let miConsulta = `SELECT *
