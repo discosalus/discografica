@@ -27,17 +27,18 @@ const seleccionarPorId = (id,callback) => {
 }
 
 const actualizarPorId = (concierto,callback) => {
-	let miConsulta = `UPDATE conciertos
-			  SET autor_id = ${concierto.artista_id}
+	let miConsulta = `UPDATE conciertos SET artista_id = '${concierto.artista_id}',
 			      nombre = '${concierto.nombre}',
 			      ciudad = '${concierto.ciudad}',
-			      lugar = '${concierto.lugar}'
+			      lugar = '${concierto.lugar}',
 			      fecha = '${concierto.fecha}',
 			      hora = '${concierto.hora}',
 			      aforo = ${concierto.aforo},
 			      asistentes = ${concierto.asistentes}
 			  WHERE id = ${concierto.id}`
         miBD.query(miConsulta,(error,filas) => {
+                console.log(miConsulta);
+                console.log(error);
                 return callback(error,filas)
         })
 }
@@ -77,6 +78,14 @@ const seleccionarPorArtistaId = (artista_id,callback) => {
                 return callback(error,filas)
         })
 }
+const seleccionarConciertoPorId = (id,callback) => {
+        let miConsulta = `SELECT *
+                          FROM conciertos
+                          WHERE id = ${id}`
+	miBD.query(miConsulta,(error,filas) => {
+		return callback(error,filas)
+	})
+}
 
 module.exports = {
 	contar,
@@ -85,7 +94,7 @@ module.exports = {
 	insertar,
 	actualizarPorId,
 	eliminarPorId,
-
+    seleccionarConciertoPorId,
 	contarPorArtistaId,
 	seleccionarPorArtistaId
 }

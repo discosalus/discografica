@@ -1,0 +1,15 @@
+doctype html
+html
+head
+ meta(charset="utf-8")
+ title Elimina concierto
+body
+ p #{mensaje}
+ form(id="eliminaConciertoForm" action="/conciertos/eliminaConcierto/eliminar" method="post")
+  p
+   label(for="nombreCnciertoEliminar") Elimina conciertos por id:
+  p
+   input(id="nombreConciertoEliminar" type ="text" name="id")
+  p
+   input(type="submit" value="Eliminar")
+   input(type="hidden" name="_method" value="delete")
