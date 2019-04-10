@@ -16,9 +16,10 @@ html
 		if registros
 			each registro in registros
 				form(id="form2" action="/discos/modificaDisco" method="post")
+					input(type="hidden" name="id" value=registro.id)
 					p
-						label(for="idDiscoForm") Artista_id:
-						input(type="text" class="field" id="idDiscoForm" name="artista_id" value=registro.artista_id)
+						label(for="artista_idForm") Artista_id:
+						input(type="text" class="field" id="artista_idForm" name="artista_id" value=registro.artista_id)
 					p
 						label(for="tituloDiscoForm") Album:
 						input(type="text" class="field" id="tituloForm" name="titulo" value=registro.titulo)

@@ -1,0 +1,47 @@
+body {
+  padding: 50px;
+  font: 16px  Helvetica, Arial, sans-serif;
+  background-color: #F8E0F7;
+  color:#3ba2a1;
+
+}
+
+a {
+  color: #00B7FF;
+  text-align: center
+}
+h1{
+	color: #9d2b83;
+}
+div.estilos{
+
+    background-color: white;
+	text-align: center;
+}
+ul{
+	 list-style:none;
+}
+ul.menu{
+
+	float:left
+}
+ul#menu li{
+    float:left;
+    margin-left: 1.5em;
+    position:relative;
+    
+    }
+ul#menu ul{
+    position:absolute;
+    left:0;
+    display:none;
+    }
+
+    ul#menu li:hover ul{
+    display:block;
+}
+input  {
+  border: 2px solid black;
+  background-color: #FFA07A;
+
+}

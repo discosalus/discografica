@@ -33,7 +33,11 @@ const actualizarPorId = (disco,callback) => {
 			      ano = '${disco.ano}'
 			  WHERE id = ${disco.id}`
         miBD.query(miConsulta,(error,filas) => {
-                return callback(error,filas)
+                console.log(miConsulta);
+                if (error) throw error;
+                else {
+                	return callback(error,filas)
+        		}
         })
 }
 
@@ -43,6 +47,7 @@ const insertar = (disco,callback) => {
 			  VALUES
 			  (${disco.artista_id},'${disco.titulo}','${disco.ano}')`
 	miBD.query(miConsulta,(error,filas) => {
+		
 		return callback(error,filas)
 	})
 }
