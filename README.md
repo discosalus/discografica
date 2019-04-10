@@ -45,3 +45,57 @@ con el nombre del artista con id 29 modificado.
 # Autor
 Pablo Beltrán Rius       paribe.pbr@gmail.com
 Encargado de la elaboración del modelo y controlador vinculado al apartado artistas dentro de la aplicación web discográfica Salus
+#Autora
+Paloma Camacho Burdeos camachoburdeos.paloma@gmail.com
+Encargada de la realazación del modelo,vista y controlador del apartado discos dentro de la aplicación web discográfica Salus.
+
+#Resumen de tareas por ficheros en el modelo ya tenia las pautas a seguir por la persona encargada de crear la estructura, añadí la siguiente función:
+
+const seleccionarDiscoPorId = (id,callback) => {
+        let miConsulta = `SELECT *
+                          FROM discos
+                          WHERE id = ${id}`
+	miBD.query(miConsulta,(error,filas) => {
+		return callback(error,filas)
+	})
+}
+module.exports = {
+	contar,
+	seleccionarTodos,
+	seleccionarPorId,
+	insertar,
+	actualizarPorId,
+	eliminarPorId,
+	contarPorArtistaId,
+	seleccionarPorArtistaId,
+	seleccionarDiscoPorId
+}
+añadí en este modúlo seleccionarDiscoPorId.
+
+En las vistas he creado  cuatro plantillas listar,insertar,actualizar y borrar registros dentro de la base de datos.
+En el controlador he puesto las instrucciones de get, post, put y delete correspondientes para poder realizar dichas plantillas y que se vean en el navegador utilizando las rutas designadas en las plantillas y en el controlador .
+
+Ejemplo de modificar un registro de la base de datos con las instrucciones pertinentes: 
+
+
+miRouter.get('/modificaDisco',(peticion,resultado)=>{
+	resultado.render('modificaDisco')
+});
+
+
+miRouter.post('/modificaDisco', (req, res)=>{
+
+	discos.seleccionarDiscoPorId(req.body.id, (error, resultado)=>{
+		
+		console.log(resultado);
+		res.render('modificaDisco', {registros:resultado})
+	});		
+				
+});
+
+
+miRouter.put('/modificaDisco', (req, res)=>{
+	discos.actualizarPorId(req.body, (error, resultado)=>{
+		res.render('portada')
+	});
+});
