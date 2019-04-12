@@ -1,5 +1,4 @@
 doctype html
-<<<<<<< HEAD
 html
 	head
 		meta(charset="utf-8")
@@ -8,16 +7,16 @@ html
 	body
 		if registros
 			each registro in registros
-				h2 #{registro.artista_id}
+				h2 #{registro.titulo}
 				ul
 					li #{registro.id}
-					li #{registro.titulo}
+					li #{registro.artista_id}
 					li #{registro.ano}
-=======
 html(lang='es')
 	head
 		meta(charset='utf-8')
 		title Discos
+		link(rel="stylesheet" type="text/css" href="/stylesheets/style.css")
 	body
 		h1 Discos
 		h2 Listar discos
@@ -45,5 +44,3 @@ html(lang='es')
 			input(type='hidden' name='_method' value='DELETE')
 			input(type='id' name='id' placeholder='id')
 			input(type='submit' value='suprimir')
-
->>>>>>> origin

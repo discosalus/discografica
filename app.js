@@ -10,7 +10,7 @@ const 	miExpress = require('express'),
   	miApp = miExpress()
 
 miApp
-        .set('miPuerto', (process.env.PORT || 8080))
+       .set('miPuerto', (process.env.PORT || 8080))
 	.set('views', `${__dirname}/views`)
   	.set('view engine', 'pug')
   	.use(miMorgan('dev'))
@@ -42,7 +42,7 @@ miApp
  	.use('/artistas',miRouterArtistas)
 //	.use('/discos',miRouterDiscos)
 
-	.use('/conciertos',miRouterConciertos)
+	//.use('/conciertos',miRouterConciertos)
 
 
   	.use((peticion, respuesta, siguiente) => siguiente(miHttpErrors(404)))

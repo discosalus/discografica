@@ -1,7 +1,12 @@
 
 const 	miExpress = require('express'),
         miRouter = miExpress.Router(),
-        discos = require('../models/discos.js')	
+        discos = require('../models/discos.js')
+        
+
+miRouter.get('/menu',(req,res)=>{
+	res.render('portada');
+});
 
 miRouter.get('/', (peticion,resultado) => {
 	
@@ -12,11 +17,6 @@ miRouter.get('/', (peticion,resultado) => {
 })
 	
 
-miRouter.post('/nuevoDisco',(peticion,resultado)=>{
-
-	resultado.render('nuevoDisco')
-
-});
 
 miRouter.get('/nuevoDisco',(peticion,resultado)=>{
 
@@ -31,21 +31,27 @@ miRouter.post('/nuevoDisco', (req, res)=>{
 
 });
 
+
 miRouter.get('/modificaDisco',(peticion,resultado)=>{
 	resultado.render('modificaDisco')
 });
 
+
 miRouter.post('/modificaDisco', (req, res)=>{
 
 	discos.seleccionarDiscoPorId(req.body.id, (error, resultado)=>{
+		
 		console.log(resultado);
 		res.render('modificaDisco', {registros:resultado})
 	});		
 				
 });
 
+
 miRouter.put('/modificaDisco', (req, res)=>{
-	discos.actualizarPorId(req.body, (error, resultado)=>{res.redirect("/discos/modificaDisco")});
+	discos.actualizarPorId(req.body, (error, resultado)=>{
+		res.render('portada')
+	});
 });
 
 
@@ -55,7 +61,7 @@ miRouter.get('/eliminaDiscos', function(req, res) {
 
 
 miRouter.delete('/eliminaDiscos', (req, res)=>{
-	discos.eliminarPorId(req.body.artista_id, (error, resultado)=>{res.render('eliminaDiscos', {mensaje: "Se eliminaron los discos cuyo nombre incluía el texto: " + req.body.artista_id})});
+	discos.eliminarPorId(req.body.artista_id, (error, resultado)=>{res.render('eliminaDiscos', {mensaje: "Se eliminó el album con el siguiente id: " + req.body.artista_id})});
 });
 
 module.exports = miRouter
