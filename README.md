@@ -139,7 +139,7 @@ Para insertar un nuevo concierto, el usuario puede utilizar la ruta '/conciertos
 http://localhost:8080/conciertos/nuevoConcierto.
 
 A través de la página de modificación de conciertos, el usuario puede, una vez seleccionado el id del concierto, actualizar cualquiera de los campos.
-http:localhost:8080/conciertos/actualizarConcierto.
+http://localhost:8080/conciertos/actualizarConcierto.
 
 En la ruta '/conciertos/eliminaConcierto' se permite que el cliente o usuario pueda eliminar cualquier concierto programado una vez que introduce el identificador o id vinculado al concierto en cuestión, pudiendo verificarlo, al actualizar la página inicial de conciertos.
 http://localhost:8080/conciertos/eliminaConcierto.
