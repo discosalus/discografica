@@ -111,8 +111,10 @@ Mi tarea ha sido la de diseño y creación de la base de datos. Además he imlem
 Además para que el resto de usuarios pudiera ver la base de datos, he implementado en la capa de control y vistas un ejemplo para mis compañeros
 
 
+# Resumen 4 de la sección "conciertos"para documentación de la misma 
 
-# Autor Salvador Fernández lsfc@outlook.es 
+# Autor
+Salvador Fernández lsfc@outlook.es 
 
 Encargado de la realización del modelo vista controlador de la sección “conciertos”.
 
