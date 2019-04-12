@@ -123,9 +123,79 @@ Reunión del equipo para tratar la resolución de la asignación de tareas para 
 
 El proyecto se inicia el día 8 de abril de 2019 y se fija como límite máximo de entrega el día 12 del mismo mes, con diversas reuniones de equipo, en un ambiente de fluída participación en las que cada integrante expresa su opinión y todos la valoran para su posterior puesta en funcionamiento,  en base a realizar de manera más cómoda el desarrollo del mismo. Así, venimos a marcarnos el objetivo de resolverlo sobre el día 10 y dejar el resto de aspectos más superficiales para las últimas fechas en base a una menor relevancia.
 
-
 En lo que a mí respecta, he desarrollado los archivos de vistas listaConciertos.pug nuevoConcierto.pug, actualizaConcierto.pug, eliminaConcierto.pug en los que se han definido las rutas que serán enlazadas desde sus respectivos controladores, de modo que el cliente puede crear, modificar una vez seleccionado por id, actualizar cualquiera de los campos y eliminar un concierto desde las rutas creadas al efecto, siendo las mismas: nuevoConcierto, actualizarConcierto, eliminaConcierto.
 
-De igual modo en el controlador he creado las diferentes secuencias de código para poder crear el enrutamiento y el código de renderización de dichas plantillas:
 
-Los habituales "get" y "post", han precedido a "put" y "delete" para actualizar y borrar respectivamente.
+PROCEDIMIENTOS
+
+Modelo–vista–controlador
+
+Modelo-vista-controlador (MVC) es un patrón de arquitectura de software, que separa los datos y la lógica de negocio de una aplicación de su representación y el módulo encargado de gestionar los eventos y las comunicaciones. Para ello MVC propone la construcción de tres componentes distintos que son el modelo, la vista y el controlador, es decir, por un lado define componentes para la representación de la información, y por otro lado para la interacción del usuario. Este patrón de arquitectura de software se basa en las ideas de reutilización de código y la separación de conceptos, características que buscan facilitar la tarea de desarrollo de aplicaciones y su posterior mantenimiento
+
+En el MVC se crean cuatro modelos con cuatro rutas  y cuatro vistas.
+En la ruta principal .use('/conciertos',miRouterConciertos) , en la app general, y desde la ruta raíz puede "ver" el usuario/cliente, el listado de conciertos de  la discográfica Salus: http://localhost:8080/conciertos.
+
+Para insertar un nuevo concierto, el usuario puede utilizar la ruta '/conciertos/nuevoConcierto’, pudiendo rellenar todos los campos relativos al mencionado concierto:
+http://localhost:8080/conciertos/nuevoConcierto.
+
+A través de la página de modificación de conciertos, el usuario puede, una vez seleccionado el id del concierto, actualizar cualquiera de los campos.
+http:localhost:8080/conciertos/actualizarConcierto.
+
+En la ruta '/conciertos/eliminaConcierto' se permite que el cliente o usuario pueda eliminar cualquier concierto programado una vez que introduce el identificador o id vinculado al concierto en cuestión, pudiendo verificarlo, al actualizar la página inicial de conciertos.
+http://localhost:8080/conciertos/eliminaConcierto.
+
+Se ha desarrollado a través de Sublime Text y Nodejs y Express, haciendo uso de las bibliotecas necesarias para su desarrollo.
+
+Para el listado de conciertos tenemos el siguiente enrutamiento y renderización:
+
+router.get('/',(req,res)=>{
+	modelo.seleccionarTodos((error, registros)=>{
+		res.render('listaConciertos', {registros})
+	})
+})
+
+Para la creación de un nuevo concierto:
+
+router.get('/nuevoConcierto', (req, res)=>{
+	res.render('nuevoConcierto');
+});
+
+router.post('/insertarConcierto/insertar', (req, res)=>{
+	modelo.insertar(req.body,(error, resultado)=>{
+		console.log(error);
+		res.redirect('/conciertos/nuevoConcierto')});
+
+});
+
+En el caso de eliminar, introducimos el método "delete":
+
+router.get('/eliminaConcierto', (req, res)=>{
+	res.render('eliminaConcierto');
+});
+
+router.delete('/eliminaConcierto/eliminar', (req, res)=>{
+	modelo.eliminarPorId(req.body.id, (error, resultado)=>{res.render('eliminaConcierto', {mensaje: "Se eliminó el concierto éxito"});
+	});
+});
+
+De igul modo para modificar, o actualizar concierto, usamos el mtodo "put":
+
+router.get('/actualizarConcierto', (req, res) => {
+		res.render('actualizaConcierto')
+	});
+
+
+router.post('/actualizarConcierto',(req,res) => {
+		modelo.seleccionarConciertoPorId(req.body.id,(error, resultado)=>{
+			console.log(resultado);
+			res.render('actualizaConcierto',{registros:resultado})
+	})
+})
+
+router.put('/actualizarConcierto', (req, res)=>{
+	modelo.actualizarPorId(req.body,(error, resultado)=>{
+		modelo.seleccionarConciertoPorId(req.body.id,(error2, resultado2)=>{
+			res.render('listaConciertos', {registros:resultado2})});
+	});
+});
+
