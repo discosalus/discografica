@@ -30,8 +30,7 @@ router.delete('/eliminaConcierto/eliminar', (req, res)=>{
 	});
 });
 
-
-				
+		
 router.get('/actualizarConcierto', (req, res) => {
 		res.render('actualizaConcierto')
 	});
@@ -50,21 +49,5 @@ router.put('/actualizarConcierto', (req, res)=>{
 			res.render('listaConciertos', {registros:resultado2})});
 	});
 });
-
-
-
-
-
-router.get('/seleccionaConcierto', (req, res)=>{
-res.render('seleccionaConcierto');
-});
-
-router.post('/seleccionarConcierto/seleccionar', (req, res)=>{
-modelo.seleccionarPorId(req.body.artista_id,(error, resultado)=>
- res.render('seleccionaConcierto', {registros:resultado}));
-});
-
-
-
 
 module.exports = router;

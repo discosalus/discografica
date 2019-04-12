@@ -10,7 +10,7 @@ html
 				label(for="concierto") id Concierto:
 				input(type="text" id="Concierto" name="id")
 			p
-				input(type="submit" id="button" value="Actualizar")
+				input(type="submit" id="button" value="Seleccionar")
 		if registros
 			form(id="formulario2" action="/conciertos/actualizarConcierto" method="post")
 				input(type="hidden" name="id" value=registros[0].id)
