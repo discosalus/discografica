@@ -110,3 +110,9 @@ AUTOR: Juanan
 Mi tarea ha sido la de diseño y creación de la base de datos. Además he imlementado la estructura del servidor Nodejs y el modelo de acceso a esta base de datos.
 Además para que el resto de usuarios pudiera ver la base de datos, he implementado en la capa de control y vistas un ejemplo para mis compañeros
 
+
+
+# Autor Salvador Fernández
+
+En el Modelo Vista Controlador, para la sección “conciertos”, he desarrollado los archivos de vistas con sus respectivos controladores, de modo que el cliente puede crear, modificar una vez seleccionado por id, actualizar cualquiera de los campos y eliminar un concierto desde las rutas creadas al efecto, siendo las mismas:
+http://localhost:8080/conciertos/nuevoConcierto, http://localhost:8080/conciertos/actualizarConcierto, http://localhost:8080/conciertos/eliminaConcierto.
