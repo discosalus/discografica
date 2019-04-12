@@ -112,7 +112,11 @@ Además para que el resto de usuarios pudiera ver la base de datos, he implement
 
 
 
-# Autor Salvador Fernández
+# Autor Salvador Fernández lsfc@outlook.es 
 
-En el Modelo Vista Controlador, para la sección “conciertos”, he desarrollado los archivos de vistas con sus respectivos controladores, de modo que el cliente puede crear, modificar una vez seleccionado por id, actualizar cualquiera de los campos y eliminar un concierto desde las rutas creadas al efecto, siendo las mismas:
-http://localhost:8080/conciertos/nuevoConcierto, http://localhost:8080/conciertos/actualizarConcierto, http://localhost:8080/conciertos/eliminaConcierto.
+Encargado de la realización del modelo vista controlador de la sección “conciertos”.
+
+He desarrollado los archivos de vistas nuevoConcierto.pug, actualizaConcierto.pug, eliminaConcierto.pug en los que se han definido las rutas que serán enlazadas desde sus respectivos controladores, de modo que el cliente puede crear, modificar una vez seleccionado por id, actualizar cualquiera de los campos y eliminar un concierto desde las rutas creadas al efecto, siendo las mismas:
+conciertos/nuevoConcierto, conciertos/actualizarConcierto, conciertos/eliminaConcierto.
+
+Además de los habituales "get" y "post", se han implementado "put" y "delete" para actualizar y borrar respectivamente.
