@@ -124,8 +124,8 @@ Reunión del equipo para tratar la resolución de la asignación de tareas para 
 El proyecto se inicia el día 8 de abril de 2019 y se fija como límite máximo de entrega el día 12 del mismo mes, con diversas reuniones de equipo, en un ambiente de fluída participación en las que cada integrante expresa su opinión y todos la valoran para su posterior puesta en funcionamiento,  en base a realizar de manera más cómoda el desarrollo del mismo. Así, venimos a marcarnos el objetivo de resolverlo sobre el día 10 y dejar el resto de aspectos más superficiales para las últimas fechas en base a una menor relevancia.
 
 
-En lo que a mí respecta, he desarrollado los archivos de vistas nuevoConcierto.pug, actualizaConcierto.pug, eliminaConcierto.pug en los que se han definido las rutas que serán enlazadas desde sus respectivos controladores, de modo que el cliente puede crear, modificar una vez seleccionado por id, actualizar cualquiera de los campos y eliminar un concierto desde las rutas creadas al efecto, siendo las mismas: nuevoConcierto, actualizarConcierto, eliminaConcierto.
+En lo que a mí respecta, he desarrollado los archivos de vistas listaConciertos.pug nuevoConcierto.pug, actualizaConcierto.pug, eliminaConcierto.pug en los que se han definido las rutas que serán enlazadas desde sus respectivos controladores, de modo que el cliente puede crear, modificar una vez seleccionado por id, actualizar cualquiera de los campos y eliminar un concierto desde las rutas creadas al efecto, siendo las mismas: nuevoConcierto, actualizarConcierto, eliminaConcierto.
 
-De igual modo en el controlador he creeado las diferentes secuencias de código para poder crear el enrutamiento y el código de renderización de dichas plantillas:
+De igual modo en el controlador he creado las diferentes secuencias de código para poder crear el enrutamiento y el código de renderización de dichas plantillas:
 
 Los habituales "get" y "post", han precedido a "put" y "delete" para actualizar y borrar respectivamente.
